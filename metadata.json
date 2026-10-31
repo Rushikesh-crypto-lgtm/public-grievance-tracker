@@ -1,0 +1,6 @@
+{
+  "name": "Public Grievance Tracker",
+  "description": "Every grievance. One accountable journey. A modern civic platform for registering, tracking, managing, and resolving public grievances with end-to-end accountability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

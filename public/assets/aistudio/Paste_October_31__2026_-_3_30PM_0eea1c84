@@ -1,0 +1,1595 @@
+Build a polished, modern, fully interactive web application prototype called **“Public Grievance Tracker”** for a college hackathon.
+
+This is NOT a simple landing page or static UI mockup. Build it as a functional website prototype with realistic navigation, forms, dashboards, case workflows, role-based views, seeded demo data, status changes, deadlines, escalation, resolution, and audit history.
+
+The application should look and behave like a professional government/public-service grievance management platform while still having a modern, clean SaaS-style interface.
+
+==================================================
+1. PROJECT OBJECTIVE
+==================================================
+
+The purpose of the application is to make public grievances:
+
+- visible
+- owned
+- trackable
+- deadline-driven
+- accountable
+- resolvable
+
+The central concept is:
+
+A citizen submits a grievance → the system generates a unique case ID → the grievance is routed to the appropriate department/officer → staff manage its lifecycle → deadlines are monitored → overdue cases can be escalated → staff resolve the case with a resolution note → the complete history remains available.
+
+The prototype must demonstrate this complete lifecycle clearly.
+
+==================================================
+2. IMPORTANT IMPLEMENTATION PRIORITY
+==================================================
+
+Prioritize these things in this order:
+
+1. Excellent visual design
+2. Fully working navigation
+3. Working grievance submission
+4. Working case tracking
+5. Working staff case management
+6. Working assignment/status updates
+7. Working deadline and overdue logic
+8. Working escalation
+9. Working resolution flow
+10. Working manager dashboard
+11. Audit/history timeline
+12. Responsive design
+
+Do NOT waste time implementing unnecessary advanced AI features.
+
+This is a hackathon prototype, so realistic seeded data and reliable frontend interactions are more important than production-scale infrastructure.
+
+==================================================
+3. TECHNOLOGY
+==================================================
+
+Use a modern web stack supported by the environment.
+
+Preferred:
+
+- React
+- TypeScript if practical
+- Tailwind CSS
+- Modern component architecture
+- Lucide icons or another clean icon library
+- Recharts or an equivalent chart library for dashboards
+
+Use a simple local persistence mechanism if a real backend/database is not available in the environment.
+
+The application should still behave like a real application.
+
+If persistent storage is possible, use it.
+
+If not, create a clean mock data/service layer using localStorage so that:
+
+- submitted grievances persist
+- status changes persist
+- assignments persist
+- escalation changes persist
+- resolution notes persist
+- dashboard counts update dynamically
+
+Do NOT make the application dependent on external APIs.
+
+The prototype must work offline after loading wherever possible.
+
+==================================================
+4. BRANDING
+==================================================
+
+Application name:
+
+**Public Grievance Tracker**
+
+Suggested tagline:
+
+**“Every grievance. One accountable journey.”**
+
+Alternative supporting text:
+
+**“Making public grievances visible, owned, and resolvable.”**
+
+Use a professional civic/public-service visual identity.
+
+Do NOT make it look childish, overly colorful, or like a generic student dashboard.
+
+Visual style:
+
+- clean
+- trustworthy
+- modern
+- professional
+- minimal
+- accessible
+- high information clarity
+
+Use:
+
+- white/light neutral backgrounds
+- deep navy/blue primary color
+- subtle secondary colors
+- green for successful/resolved states
+- amber for warning/at-risk states
+- red for overdue/critical states
+- slate/gray for neutral states
+
+Avoid excessive gradients.
+
+Avoid huge decorative graphics.
+
+Avoid excessive rounded cards.
+
+Use subtle shadows, borders, spacing, and hierarchy.
+
+Typography should be modern and highly readable.
+
+==================================================
+5. APPLICATION ROLES
+==================================================
+
+Create three primary roles:
+
+A. CITIZEN
+
+B. STAFF / CASE WORKER
+
+C. MANAGER
+
+Optionally include ADMIN internally if useful, but do not make the prototype unnecessarily complicated.
+
+The interface shown to each role must be different.
+
+Citizen should NOT see:
+
+- private staff information
+- internal notes
+- internal audit details
+- private reporter information
+- internal escalation reasoning
+
+Staff should see:
+
+- assigned cases
+- ownership
+- internal case information
+- status
+- deadlines
+- audit history
+- escalation controls
+
+Manager should see:
+
+- operational overview
+- all relevant cases
+- workload
+- overdue cases
+- escalation signals
+- filters
+- performance/operational metrics
+
+==================================================
+6. LANDING PAGE
+==================================================
+
+Create a polished public landing page.
+
+Header:
+
+- Public Grievance Tracker logo/name
+- Home
+- Register Grievance
+- Track Grievance
+- About
+- Login
+
+Hero section:
+
+Heading:
+
+**“Your grievance deserves an accountable response.”**
+
+Supporting text:
+
+“Submit a public grievance, receive a unique case ID, and track its journey from submission to resolution.”
+
+Primary button:
+
+**Register a Grievance**
+
+Secondary button:
+
+**Track a Grievance**
+
+Show a subtle illustration or dashboard preview.
+
+Below the hero, show three simple benefits:
+
+1. Submit
+   “Create a traceable grievance in minutes.”
+
+2. Track
+   “Follow every important status update.”
+
+3. Resolve
+   “See how your grievance moves toward resolution.”
+
+Add a small “How it works” section.
+
+Steps:
+
+01 Submit
+02 Assign
+03 Act
+04 Resolve
+
+Footer should contain:
+
+- Public Grievance Tracker
+- Privacy
+- Accessibility
+- Contact
+- Demo application notice
+
+==================================================
+7. CITIZEN — REGISTER GRIEVANCE
+==================================================
+
+Create a professional multi-section grievance form.
+
+Fields:
+
+Reporter information:
+
+- Full Name
+- Email
+- Phone Number
+
+Grievance information:
+
+- Category
+- Subcategory if appropriate
+- Description
+- Date of incident
+- Area / locality
+- Optional address/location
+- Optional file attachment
+
+Suggested categories:
+
+- Roads & Infrastructure
+- Water Supply
+- Electricity
+- Sanitation
+- Street Lighting
+- Public Safety
+- Waste Management
+- Transportation
+- Other
+
+Form requirements:
+
+- required field validation
+- clear error messages
+- character counter for description
+- file upload UI
+- confirmation before submission
+
+Privacy notice:
+
+“Your contact information is protected and is only visible to authorized personnel.”
+
+Do not expose reporter contact information in public tracking views.
+
+Submit button:
+
+**Submit Grievance**
+
+After submission:
+
+Generate a realistic unique case ID such as:
+
+**PG-2026-00124**
+
+Show a success page.
+
+Success message:
+
+**“Your grievance has been successfully registered.”**
+
+Show:
+
+- Case ID
+- Category
+- Submission date
+- Current status
+- Expected response/resolution target
+
+Provide buttons:
+
+**Track Grievance**
+
+**Copy Case ID**
+
+==================================================
+8. CITIZEN — TRACK GRIEVANCE
+==================================================
+
+Create a tracking page.
+
+At the top:
+
+“Track your grievance”
+
+Input:
+
+Case ID
+
+Example:
+
+PG-2026-00124
+
+Button:
+
+**Track Case**
+
+After searching, show:
+
+Case ID
+Category
+Area
+Submitted date
+Current status
+Assigned department where appropriate
+Target resolution date
+
+Do NOT expose private staff information unnecessarily.
+
+Create a large visual status timeline.
+
+Required lifecycle:
+
+Submitted
+↓
+Acknowledged
+↓
+In Progress
+↓
+Awaiting Information
+↓
+Resolved
+↓
+Closed
+
+The current stage should be visually highlighted.
+
+Completed stages should have checkmarks.
+
+Current stage should have a strong visual indicator.
+
+Future stages should appear muted.
+
+If overdue, clearly show:
+
+**OVERDUE**
+
+with the number of days/hours overdue.
+
+If resolved, show:
+
+Resolution summary
+
+Resolution date
+
+==================================================
+9. STAFF LOGIN
+==================================================
+
+Create a realistic login screen.
+
+Fields:
+
+- Email
+- Password
+
+Demo credentials should be visible through a small “Demo accounts” area or login selector.
+
+Example:
+
+Staff:
+
+staff@pgt.demo
+
+Manager:
+
+manager@pgt.demo
+
+Do not require real email verification.
+
+After login, route the user to the correct dashboard based on role.
+
+==================================================
+10. STAFF DASHBOARD
+==================================================
+
+Create a professional staff dashboard.
+
+Sidebar:
+
+- Dashboard
+- My Cases
+- All Cases
+- Escalations
+- Notifications
+- Profile
+
+Top bar:
+
+- Search
+- Notifications
+- User profile
+- Role badge
+
+Dashboard statistics:
+
+- Assigned to Me
+- In Progress
+- Awaiting Information
+- Due Soon
+- Overdue
+- Resolved
+
+Use visually distinct statistic cards.
+
+Below:
+
+“Cases Requiring Attention”
+
+Create a table.
+
+Columns:
+
+- Case ID
+- Category
+- Area
+- Priority
+- Owner
+- Status
+- Deadline
+- Risk
+- Action
+
+Use badges:
+
+Priority:
+
+LOW
+MEDIUM
+HIGH
+CRITICAL
+
+Risk:
+
+ON TRACK
+AT RISK
+OVERDUE
+
+Add filters:
+
+- Department
+- Category
+- Priority
+- Status
+- Owner
+- Deadline
+
+Add search.
+
+==================================================
+11. STAFF — CASE DETAILS
+==================================================
+
+Clicking a case should open a detailed case page.
+
+Header:
+
+Case ID
+
+Example:
+
+PG-2026-00124
+
+Status badge
+
+Priority badge
+
+Risk badge
+
+Buttons:
+
+- Assign
+- Change Status
+- Escalate
+- Add Note
+- Resolve
+
+Main layout:
+
+LEFT:
+
+Case information
+
+- Category
+- Description
+- Area
+- Date submitted
+- Department
+- Assigned officer
+- Priority
+- Target resolution date
+
+RIGHT:
+
+Deadline card
+
+Example:
+
+Target resolution:
+02 Nov 2026
+
+Time remaining:
+18 hours
+
+Risk:
+AT RISK
+
+Below:
+
+Status timeline.
+
+Then:
+
+Activity / Audit Timeline
+
+Example:
+
+10:42 AM
+Grievance submitted
+by Citizen
+
+10:45 AM
+Assigned to Roads Department
+by System
+
+11:05 AM
+Acknowledged
+by Rahul Kumar
+
+12:20 PM
+Status changed to In Progress
+by Rahul Kumar
+
+Every event should show:
+
+- timestamp
+- actor
+- action
+- optional reason/note
+
+==================================================
+12. ASSIGNMENT
+==================================================
+
+Create an assignment modal.
+
+Fields:
+
+Department:
+
+- Roads & Infrastructure
+- Water Supply
+- Electricity
+- Sanitation
+- Public Safety
+- Transportation
+
+Officer:
+
+Populate dynamically based on department.
+
+Example:
+
+Roads & Infrastructure:
+
+- Rahul Kumar
+- Ananya Sharma
+- Vikram Singh
+
+Buttons:
+
+Cancel
+
+Assign Case
+
+After assignment:
+
+- update owner
+- update department
+- add audit event
+- update dashboard
+
+==================================================
+13. STATUS MANAGEMENT
+==================================================
+
+Allow authorized staff to change status.
+
+Available statuses:
+
+1. Submitted
+2. Acknowledged
+3. In Progress
+4. Awaiting Information
+5. Resolved
+6. Closed
+
+Prevent nonsensical transitions where possible.
+
+For example:
+
+Submitted → Acknowledged
+
+Acknowledged → In Progress
+
+In Progress → Awaiting Information
+
+Awaiting Information → In Progress
+
+In Progress → Resolved
+
+Resolved → Closed
+
+Resolved cases may be reopened by authorized staff.
+
+When changing status, show a confirmation modal.
+
+Optional note:
+
+“Add a reason or note for this status change.”
+
+Every status change must create an audit event.
+
+==================================================
+14. DEADLINES
+==================================================
+
+Implement configurable target resolution times.
+
+Suggested default targets:
+
+LOW:
+7 days
+
+MEDIUM:
+5 days
+
+HIGH:
+3 days
+
+CRITICAL:
+24 hours
+
+These are prototype values and should be clearly treated as configurable demo rules.
+
+The system should calculate:
+
+- target date
+- remaining time
+- overdue state
+
+Risk logic:
+
+ON TRACK:
+More than 30% of target time remaining
+
+AT RISK:
+Less than or equal to 30% remaining
+
+OVERDUE:
+Target date has passed
+
+Use clear visual indicators.
+
+==================================================
+15. ESCALATION
+==================================================
+
+Create an escalation feature.
+
+If a case becomes overdue or high-risk, show:
+
+**Escalate Case**
+
+Escalation modal:
+
+Reason:
+
+- Deadline exceeded
+- No action taken
+- High priority
+- Citizen follow-up
+- Other
+
+Additional note.
+
+Buttons:
+
+Cancel
+
+Escalate
+
+After escalation:
+
+- case gets an “Escalated” indicator
+- manager dashboard count increases
+- audit history records escalation
+- case appears in escalation list
+
+==================================================
+16. RESOLUTION FLOW
+==================================================
+
+A case must NOT simply become resolved by clicking a button.
+
+When clicking:
+
+**Resolve Case**
+
+open a resolution modal.
+
+Required:
+
+Resolution note
+
+Example:
+
+“Road damage repaired and inspected by the department team.”
+
+Optional:
+
+Resolution evidence/file
+
+Resolution date should be generated automatically.
+
+After submitting:
+
+Status becomes:
+
+**Resolved**
+
+Add an audit event.
+
+Then allow authorized staff/manager to:
+
+**Close Case**
+
+Closing should require confirmation.
+
+==================================================
+17. REOPEN CASE
+==================================================
+
+Authorized staff or manager can reopen a resolved/closed case when appropriate.
+
+Reopen modal:
+
+Reason:
+
+Required
+
+Example:
+
+“Citizen provided new information indicating the issue is still unresolved.”
+
+After reopening:
+
+- status changes appropriately
+- audit trail records reopening
+- case returns to active workload
+- manager metrics update
+
+==================================================
+18. MANAGER DASHBOARD
+==================================================
+
+This is one of the most important screens.
+
+Create a highly polished operations dashboard.
+
+Header:
+
+**Operations Overview**
+
+Subtitle:
+
+“Monitor workload, deadlines, escalations and resolution progress.”
+
+Top statistics:
+
+Total Cases
+Open Cases
+Overdue Cases
+At Risk
+Escalated
+Resolved
+
+Create charts.
+
+Chart 1:
+
+**Cases by Status**
+
+Use a donut/pie chart.
+
+Chart 2:
+
+**Cases by Priority**
+
+Use a bar chart.
+
+Chart 3:
+
+**Cases by Department**
+
+Use a horizontal bar chart.
+
+Chart 4:
+
+**Resolution Trend**
+
+Use a line chart.
+
+All charts should use realistic seeded demo data.
+
+Below charts:
+
+**Cases Requiring Attention**
+
+Show overdue and escalated cases.
+
+Columns:
+
+Case ID
+Category
+Department
+Owner
+Priority
+Deadline
+Status
+Risk
+Action
+
+Add filters:
+
+- Department
+- Area
+- Category
+- Owner
+- Status
+- Priority
+- Deadline
+
+Add search.
+
+==================================================
+19. MANAGER — ESCALATIONS
+==================================================
+
+Create an escalation page.
+
+Show:
+
+- Escalated cases
+- Reason
+- Current owner
+- Department
+- Deadline
+- Days overdue
+- Escalation date
+
+Actions:
+
+- Reassign
+- Change priority
+- Add note
+- Resolve
+- Reopen
+
+Make overdue cases visually obvious.
+
+==================================================
+20. AUDIT TRAIL
+==================================================
+
+Accountability is a major part of the concept.
+
+Every important action should be recorded.
+
+Examples:
+
+- Case created
+- Case assigned
+- Status changed
+- Priority changed
+- Deadline changed
+- Note added
+- Case escalated
+- Case resolved
+- Case reopened
+- Case closed
+
+Each audit entry should contain:
+
+- timestamp
+- user
+- role
+- action
+- description
+
+Create a beautiful vertical timeline.
+
+Example:
+
+● 10:32 AM
+Rahul Kumar
+Staff
+
+Changed status
+
+Submitted → Acknowledged
+
+● 11:04 AM
+Ananya Sharma
+Manager
+
+Escalated case
+
+Reason: Deadline exceeded
+
+==================================================
+21. NOTIFICATIONS
+==================================================
+
+Create a notification dropdown/page.
+
+Examples:
+
+“Case PG-2026-00124 is overdue.”
+
+“Case PG-2026-00125 has been assigned to you.”
+
+“Case PG-2026-00126 has been escalated.”
+
+“Case PG-2026-00127 was resolved.”
+
+Use unread/read states.
+
+==================================================
+22. SEARCH
+==================================================
+
+Global search should allow searching by:
+
+- Case ID
+- Category
+- Area
+- Owner
+- Department
+
+Show useful search results.
+
+==================================================
+23. SEEDED DEMO DATA
+==================================================
+
+Prepopulate the application with realistic grievances.
+
+Create at least 12–15 cases.
+
+Use varied:
+
+Categories:
+Roads
+Water
+Electricity
+Sanitation
+Street Lighting
+Public Safety
+
+Statuses:
+Submitted
+Acknowledged
+In Progress
+Awaiting Information
+Resolved
+Closed
+
+Priorities:
+Low
+Medium
+High
+Critical
+
+Risk states:
+On Track
+At Risk
+Overdue
+
+Include at least:
+
+- 3 normal active cases
+- 3 overdue cases
+- 2 escalated cases
+- 3 resolved cases
+- 2 closed cases
+- 1 critical case
+
+Use realistic Indian names and locations.
+
+Example areas:
+
+Hyderabad
+Kukatpally
+Madhapur
+Gachibowli
+Secunderabad
+Banjara Hills
+Hitech City
+
+Do not use real personal information.
+
+All demo data should be clearly fictional.
+
+==================================================
+24. DEMO CASE
+==================================================
+
+Create one especially useful seeded case for the hackathon demonstration.
+
+Case ID:
+
+**PG-2026-00124**
+
+Category:
+
+Roads & Infrastructure
+
+Description:
+
+“Large pothole reported near a busy junction causing difficulty for two-wheelers and cars.”
+
+Area:
+
+Gachibowli
+
+Priority:
+
+HIGH
+
+Initial status:
+
+Submitted
+
+Department:
+
+Roads & Infrastructure
+
+Officer:
+
+Rahul Kumar
+
+Target resolution:
+
+Configurable demo deadline
+
+This case should be easy to demonstrate through the complete lifecycle:
+
+Submitted
+→ Assigned
+→ Acknowledged
+→ In Progress
+→ Deadline becomes overdue
+→ Escalated
+→ Resolved with resolution note
+→ Closed
+
+The dashboard statistics must change as the case changes.
+
+==================================================
+25. RESPONSIVE DESIGN
+==================================================
+
+The website must work well on:
+
+- desktop
+- laptop
+- tablet
+- mobile
+
+Desktop should be the primary design target because this is a hackathon presentation.
+
+Sidebar should collapse on smaller screens.
+
+Tables should become horizontally scrollable or transform into cards on mobile.
+
+Forms should remain easy to use.
+
+==================================================
+26. UX DETAILS
+==================================================
+
+Add:
+
+- loading states
+- empty states
+- success notifications
+- error notifications
+- confirmation dialogs
+- tooltips where helpful
+- hover states
+- smooth but subtle transitions
+- skeleton loaders where appropriate
+
+Do not overuse animations.
+
+Interactions should feel fast and professional.
+
+==================================================
+27. ACCESSIBILITY
+==================================================
+
+Use:
+
+- semantic HTML
+- proper labels
+- keyboard-friendly controls
+- sufficient contrast
+- accessible buttons
+- meaningful error messages
+- visible focus states
+
+==================================================
+28. PRIVACY / SECURITY UI
+==================================================
+
+Clearly communicate that citizen contact information is protected.
+
+Citizen tracking should never expose:
+
+- private phone numbers
+- private email addresses
+- internal notes
+- internal audit details
+- unnecessary staff information
+
+Staff and manager views may display authorized internal information.
+
+Show a subtle privacy indicator on relevant screens.
+
+==================================================
+29. NAVIGATION
+==================================================
+
+Ensure all navigation works.
+
+Citizen:
+
+Home
+Register Grievance
+Track Grievance
+About
+
+Staff:
+
+Dashboard
+My Cases
+All Cases
+Escalations
+Notifications
+Profile
+
+Manager:
+
+Dashboard
+All Cases
+Escalations
+Analytics
+Notifications
+Profile
+
+Clicking a case from any list should open the correct case details page.
+
+Browser back/forward navigation should work.
+
+==================================================
+30. EMPTY STATES
+==================================================
+
+Create polished empty states.
+
+Example:
+
+“No grievances found.”
+
+“No escalations require attention.”
+
+“No notifications.”
+
+“No cases assigned to you.”
+
+Do not leave blank white sections.
+
+==================================================
+31. ERROR HANDLING
+==================================================
+
+Examples:
+
+Invalid Case ID:
+
+“Case ID not found. Please check the ID and try again.”
+
+Missing required field:
+
+“This field is required.”
+
+Invalid file:
+
+“Please upload a supported file type.”
+
+Unauthorized action:
+
+“You do not have permission to perform this action.”
+
+==================================================
+32. DEMO MODE
+==================================================
+
+Create a simple way for judges to access demo accounts.
+
+On the login page show:
+
+DEMO ACCOUNTS
+
+Citizen
+citizen@pgt.demo
+
+Staff
+staff@pgt.demo
+
+Manager
+manager@pgt.demo
+
+Use a demo password internally or provide a “Use Demo Account” button.
+
+Do not require real authentication infrastructure.
+
+==================================================
+33. VISUAL QUALITY
+==================================================
+
+The final website should feel like a real product.
+
+Use:
+
+- consistent spacing
+- consistent typography
+- clear hierarchy
+- polished cards
+- professional tables
+- clean charts
+- good empty states
+- meaningful icons
+- subtle shadows
+- professional badges
+- high-quality dashboard layout
+
+Avoid:
+
+- generic template appearance
+- excessive gradients
+- oversized text everywhere
+- random colors
+- clutter
+- unnecessary animations
+- placeholder “Lorem ipsum”
+- broken links
+- empty pages
+- fake buttons that do nothing
+
+Every visible button should either work or clearly indicate its purpose.
+
+==================================================
+34. DATA BEHAVIOR
+==================================================
+
+The application should maintain a single source of truth for grievance data.
+
+When a grievance changes:
+
+- case list updates
+- case details update
+- dashboard statistics update
+- charts update where applicable
+- audit history updates
+- escalation list updates
+- citizen tracking updates
+
+For example:
+
+If an overdue case is resolved:
+
+Overdue Cases:
+5 → 4
+
+Resolved:
+18 → 19
+
+The case status:
+OVERDUE → RESOLVED
+
+The audit trail gets a resolution entry.
+
+==================================================
+35. IMPORTANT PROTOTYPE RULE
+==================================================
+
+Do NOT build fake disconnected screens.
+
+All major screens must operate on the same grievance data.
+
+The following must be connected:
+
+Citizen submission
+↓
+Case database/state
+↓
+Staff dashboard
+↓
+Case details
+↓
+Assignment
+↓
+Status
+↓
+Deadline
+↓
+Escalation
+↓
+Resolution
+↓
+Manager dashboard
+↓
+Citizen tracking
+
+==================================================
+36. DEMO WALKTHROUGH
+==================================================
+
+Optimize the application for this exact hackathon presentation.
+
+STEP 1:
+
+Open Citizen homepage.
+
+Click:
+
+Register a Grievance.
+
+STEP 2:
+
+Submit a road damage complaint.
+
+STEP 3:
+
+Show generated Case ID:
+
+PG-2026-00124
+
+STEP 4:
+
+Open Staff login.
+
+Show the new grievance.
+
+STEP 5:
+
+Assign it to:
+
+Roads & Infrastructure
+→ Rahul Kumar
+
+STEP 6:
+
+Change status:
+
+Submitted
+→ Acknowledged
+→ In Progress
+
+STEP 7:
+
+Demonstrate the deadline/risk indicator.
+
+Make the seeded demo case overdue through demo data/time simulation if necessary.
+
+STEP 8:
+
+Click:
+
+Escalate
+
+Choose:
+
+Deadline exceeded
+
+STEP 9:
+
+Open Manager Dashboard.
+
+Show:
+
+- overdue case count
+- escalated case count
+- case in escalation list
+
+STEP 10:
+
+Return to case.
+
+Resolve the case with a resolution note:
+
+“Road damage repaired and inspected by the department team.”
+
+STEP 11:
+
+Close the case.
+
+STEP 12:
+
+Open audit timeline.
+
+Show the complete history.
+
+STEP 13:
+
+Open Citizen Track Grievance.
+
+Enter:
+
+PG-2026-00124
+
+Show the updated:
+
+Resolved / Closed
+
+state.
+
+This entire workflow must work smoothly without requiring page refreshes.
+
+==================================================
+37. DEMO DATA / TIME SIMULATION
+==================================================
+
+Because this is a prototype, include a simple demo-friendly mechanism for deadline testing.
+
+For example:
+
+A small “Demo Controls” area visible only to staff/manager accounts.
+
+Options:
+
+- Normal Time
+- Make Case Due Soon
+- Make Case Overdue
+
+This is ONLY for demonstrating the prototype.
+
+Do not expose this feature in the citizen interface.
+
+When “Make Case Overdue” is selected:
+
+- target deadline should become past due
+- risk should become OVERDUE
+- dashboard count should update
+- escalation should become available
+
+==================================================
+38. ABOUT PAGE
+==================================================
+
+Create an About page explaining the purpose.
+
+Heading:
+
+**Why Public Grievance Tracker?**
+
+Explain:
+
+“Public grievances can become difficult to resolve when responsibility, priority and deadlines are separated. Public Grievance Tracker creates one traceable case lifecycle so every grievance has an owner, a visible status and a clear path to resolution.”
+
+Then show:
+
+Intake
+Ownership
+Deadlines
+Accountability
+Operations
+
+Keep the copy concise.
+
+==================================================
+39. FINAL POLISH
+==================================================
+
+Before considering the application complete, verify:
+
+- No broken routes
+- No console errors
+- No dead buttons
+- No placeholder text
+- Forms validate correctly
+- Case IDs generate correctly
+- Demo data loads
+- Dashboard metrics work
+- Filters work
+- Search works
+- Assignment works
+- Status changes work
+- Escalation works
+- Resolution works
+- Reopening works
+- Audit history works
+- Citizen tracking works
+- Responsive layout works
+
+==================================================
+40. MOST IMPORTANT REQUIREMENT
+==================================================
+
+This must feel like ONE cohesive application, not a collection of unrelated screens.
+
+The core product story is:
+
+**SUBMIT → ASSIGN → TRACK → ESCALATE → RESOLVE → CLOSE**
+
+Every design and interaction should reinforce that story.
+
+Build the complete prototype now.
+
+Do not stop after creating only the landing page.
+
+Do not ask me to manually create each component.
+
+Generate the application structure, pages, components, styling, mock data, state management, routing, and working interactions needed for the complete prototype.
+
+If a backend cannot be implemented in the current environment, use a clean local data/service layer with localStorage while keeping the architecture organized so a real backend can be added later.
+
+After implementation, provide a concise summary of:
+
+1. What was built
+2. Available pages
+3. Demo accounts
+4. Main demo workflow
+5. Any setup/run instructions
+6. Any limitations of the prototype
+
+==================================================
+END OF PROMPT
+==================================================
